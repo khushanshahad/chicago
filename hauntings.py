@@ -5,7 +5,7 @@ import pandas as pd
 import auxiliaryFunctions
 from folium.plugins import HeatMap
 
-file_path = 'hauntings.csv'
+file_path = '/Users/khushanshahad/Desktop/hauntings.csv'
 dataframe = pd.read_csv(file_path)
 
 dataframe['latitude'] = pd.to_numeric(dataframe['latitude'], errors='coerce')
