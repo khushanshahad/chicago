@@ -1,51 +1,43 @@
-# Hauntings 👻
+# Chicago Hauntings Map
 
-This Python program processes haunted locations data from a CSV file and generates a heatmap to visualize the most haunted places in the United States of America. It also provides statistics related to these haunted locations.
+An interactive heatmap of reported hauntings across Chicago, Illinois.
 
-![Screenshot 2023-10-13 at 22 03 20](https://github.com/andreamoleri/Hauntings/assets/70026300/6dc7d816-e662-4b2c-ad53-63c73154f6ca)
+## [👻 View the interactive map](https://khushanshahad.github.io/Hauntings/)
 
-## Prerequisites
+Zoom and pan to explore. Brighter, warmer areas have more reported hauntings, and the black outline marks the Chicago city boundary.
 
-Make sure you have the following libraries installed in your Python environment:
-- [Folium](https://python-visualization.github.io/folium/)
-- [Pandas](https://pandas.pydata.org/)
-  
-## Installation
-You can install the required libraries using pip:
+## About
+
+This project takes a dataset of reported haunted locations, filters it down to Chicago, IL, and plots each location as a heatmap layer over the city boundary. It is a fork of an existing Hauntings project, modified to focus only on Chicago.
+
+## How it works
+
+1. Loads `hauntings.csv` with pandas.
+2. Keeps only rows where the city is Chicago and the state is Illinois (so other towns named Chicago are excluded), and drops rows with missing coordinates.
+3. Downloads the Chicago city boundary as GeoJSON from the [Chicago Data Portal](https://data.cityofchicago.org/).
+4. Builds the map with [folium](https://python-visualization.github.io/folium/) and saves it as `index.html`.
+5. Prints summary stats using helper functions in `auxiliaryFunctions.py`.
+
+## Run it yourself
+
 ```bash
-pip install folium pandas
-```
-## Usage
-### Clone the Repository:
-```bash
-git clone https://github.com/your-username/hauntings-map.git
-cd hauntings-map
-```
-
-### Prepare Haunted Locations Data:
-- Create a CSV file named **hauntings.csv** containing the haunted locations data. The CSV file should have columns named **latitude** and **longitude** for the location coordinates.
-  
-### Run the Program:
-```bash
-python3 hauntings.py
+git clone https://github.com/khushanshahad/Hauntings.git
+cd Hauntings
+pip install pandas folium
+python main.py
 ```
 
-### View the Output:
-- The script will generate a heatmap named **HauntingsDistribution.html** showcasing the distribution of haunted locations in America. 
-- The statistics related to haunting will be printed in the console and saved in a file named **hauntingstats.txt**.
-  
-## Program Explanation
-### Import Libraries:
-- Folium is used for map visualization.
-- Pandas is used for data manipulation and analysis.
-### Read Haunted Locations Data:
-- The script reads the haunted locations data from **hauntings.csv** into a Pandas DataFrame. This file was kindly provided in the public domain by Tim Renner (https://data.world/timothyrenner/haunted-places)
-### Data Processing:
-- Missing latitude and longitude values are replaced with arbitrary values (0) for heatmap generation.
-### Heatmap Generation:
-- The script creates a heatmap using the processed data and saves it as an HTML file (**'HauntingsDistribution.html'**).
-### Statistics:
-The script calculates and prints statistics related to the haunted locations, and saves them in **'hauntingstats.txt'**.
+Then open `index.html` in your browser.
 
+> Note: update the `file_path` near the top of the script to point to wherever `hauntings.csv` is on your computer.
 
-  👻 _Happy Haunting!_ 👻
+## Built with
+
+- Python
+- [pandas](https://pandas.pydata.org/)
+- [folium](https://python-visualization.github.io/folium/)
+- [Chicago Data Portal](https://data.cityofchicago.org/) for the city boundary
+
+## Credits
+
+Forked from the original Hauntings project. Chicago-specific changes by [Khushan Shahad](https://github.com/khushanshahad).
