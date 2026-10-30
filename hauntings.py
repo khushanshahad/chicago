@@ -41,7 +41,7 @@ folium.GeoJson(
 heat_data = chicago_df[['latitude', 'longitude']].values.tolist()
 HeatMap(heat_data).add_to(chicago_map)
 
-chicago_map.save('ChicagoHauntingsDistribution.html')
+chicago_map.save('index.html')
 
 auxiliaryFunctions.stats(chicago_df)
 auxiliaryFunctions.success_message()

@@ -1,6 +1,5 @@
 Total Illinois hauntings: 28
 
-Breakdown by city:
-         count  percentage
-city                      
-Chicago     28       100.0
+Top cities:
+city
+Chicago    28
